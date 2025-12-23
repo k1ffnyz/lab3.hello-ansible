@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  ansible-managed-host:
+    build: .
+    container_name: ansible-managed-host
+    ports:
+      - "2222:22"
+    tty: true
+

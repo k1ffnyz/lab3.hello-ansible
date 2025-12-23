@@ -1,0 +1,31 @@
+---
+- name: Playbook with variables
+  hosts: managed_hosts
+  become: true
+
+  vars:
+    app_dir: /opt/myapp
+    app_file: info.txt
+
+  tasks:
+    - name: Create application directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Create file in app directory
+      copy:
+        content: |
+          Hello from Ansible!
+          App directory: {{ app_dir }}
+        dest: "{{ app_dir }}/{{ app_file }}"
+
+    - name: Show file content
+      command: cat "{{ app_dir }}/{{ app_file }}"
+      register: output
+
+    - name: Print content
+      debug:
+        msg: "{{ output.stdout }}"
+

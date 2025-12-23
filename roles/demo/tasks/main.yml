@@ -1,0 +1,13 @@
+---
+- name: Create app directory
+  file:
+    path: "{{ app_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Create app file
+  copy:
+    content: "Created by role\n"
+    dest: "{{ app_dir }}/info.txt"
+  notify: App changed
+

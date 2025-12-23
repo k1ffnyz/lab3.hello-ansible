@@ -1,0 +1,5 @@
+---
+- name: App changed
+  debug:
+    msg: "Handler from role executed"
+

@@ -1,0 +1,17 @@
+---
+- name: Handlers demo
+  hosts: managed_hosts
+  become: true
+
+  tasks:
+    - name: Create config file
+      copy:
+        content: "config_version=1\n"
+        dest: /opt/demo.conf
+      notify: Config changed
+
+  handlers:
+    - name: Config changed
+      debug:
+        msg: "Handler triggered: config was updated"
+

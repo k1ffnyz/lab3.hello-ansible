@@ -1,0 +1,6 @@
+---
+- hosts: managed_hosts
+  become: true
+  roles:
+    - demo
+
