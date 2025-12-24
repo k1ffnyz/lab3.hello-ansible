@@ -1,7 +1,7 @@
 ---
 - name: Work with files
   hosts: managed_hosts
-  become: true
+  become: false
 
   tasks:
     - name: Create multiple directories
@@ -23,8 +23,9 @@
         - test_dir2
         - test_dir3
 
-    - name: Display files
-      command: cat /tmp/{{ item }}/content.txt
+    - name: Read files (idempotent)
+      slurp:
+        src: /tmp/{{ item }}/content.txt
       loop:
         - test_dir1
         - test_dir2
@@ -33,6 +34,6 @@
 
     - name: Show file contents
       debug:
-        msg: "{{ item.stdout }}"
+        msg: "{{ item.content | b64decode }}"
       loop: "{{ file_content.results }}"
 
