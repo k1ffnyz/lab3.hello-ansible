@@ -39,8 +39,10 @@ ansible-lab/
 │ ├── 02_docker_compose_ps.png
 │ ├── 03_ssh_login.png
 │ ├── 04_ansible_ping.png
-│ ├── 05_playbook_run.png
-│ └── 06_idempotency.png
+│ ├── 05_ad_hoc_commands.png
+│ ├── 06_playbook_run.png
+│ ├── 07_idempotency.png
+│ └── 08_role_execution.png
 └── roles/
 └── demo/
 ├── tasks/main.yml
@@ -49,11 +51,8 @@ ansible-lab/
 ```
 
 
-## Структура проекта соответствует best practices Ansible и включает:
-- inventory для описания управляемых хостов
-- playbook’и для автоматизации задач
-- role для демонстрации модульного подхода
-- папку со скриншотами, подтверждающими выполнение работы
+
+Проект имеет стандартную структуру Ansible и демонстрирует использование inventory, playbook’ов и roles.
 
 ---
 
@@ -63,7 +62,7 @@ ansible-lab/
 ![Project structure](screenshots/01_project_structure.png)
 
 ### Запущенный Docker-контейнер
-![Docker container](screenshots/02_docker_compose_ps.png)
+![Docker Compose](screenshots/02_docker_compose_ps.png)
 
 ### SSH-подключение к управляемому хосту
 ![SSH login](screenshots/03_ssh_login.png)
@@ -71,9 +70,14 @@ ansible-lab/
 ### Проверка подключения Ansible (ping)
 ![Ansible ping](screenshots/04_ansible_ping.png)
 
+### Выполнение ad-hoc команд
+![Ad-hoc commands](screenshots/05_ad_hoc_commands.png)
+
 ### Выполнение Ansible playbook
-![Playbook run](screenshots/05_playbook_run.png)
+![Playbook run](screenshots/06_playbook_run.png)
 
 ### Проверка идемпотентности (changed=0)
-![Idempotency](screenshots/06_idempotency.png)
+![Idempotency](screenshots/07_idempotency.png)
 
+### Выполнение playbook с role
+![Role execution](screenshots/08_role_execution.png)
